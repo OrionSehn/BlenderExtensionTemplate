@@ -1,1 +1,1 @@
-from .submod1 import hello_world
+from .ext_name.submod1.foo import hello_world
