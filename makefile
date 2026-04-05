@@ -21,19 +21,19 @@ package: deps
 
 # Grabs wheels for extension dependencies
 wheels: deps
-	rm -rf src/$(EXT_NAME)/wheels/
-	mkdir -p src/$(EXT_NAME)/wheels/
+	rm -rf ./$(EXT_NAME)/wheels/
+	mkdir -p ./$(EXT_NAME)/wheels/
 	python$(PYTHON_VERSION) -m pip download -r requirements.txt --dest ./$(EXT_NAME)/wheels --only-binary=:all: --python-version=$(PYTHON_VERSION) --platform=$(PLATFORM)
-	python$(PYTHON_VERSION) $(EXT_NAME)/scripts/update_wheels_manifest.py
+	python$(PYTHON_VERSION) $(EXT_NAME)/$(EXT_NAME)/scripts/update_wheels_manifest.py
 	@echo "Wheels Built"
 
 # Zips the extension for distribution
 zip: 
-	cd src && find $(EXT_NAME) -type f | zip ../build/$(EXT_NAME) -@
-	@echo "Build done"
+	find $(EXT_NAME) -type f | zip ./build/$(EXT_NAME) -@
+	@echo "Zip Created"
 
 # Builds the extension, zips for distribution
-build: wheels zip
+build: wheels package zip
 
 # Tests the extension by running pytest in Blender's Python environment
 test:

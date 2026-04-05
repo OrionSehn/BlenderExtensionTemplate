@@ -20,7 +20,7 @@ def update_wheels_manifest(wheels_dir, manifest_path):
     """
 
     # List of packages already covered by other dependencies, in the case of multiple extensions being installed. 
-    EXCLUDED_PACKAGES = [] # ex "numpy", "pandas", etc. 
+    EXCLUDED_PACKAGES = [] # ex "numpy", coverd by Blender's version of Numpy. 
 
     # Get the list of wheel files in the wheels directory:
     wheel_files = [
@@ -54,12 +54,13 @@ def update_wheels_manifest(wheels_dir, manifest_path):
 
 if __name__ == "__main__":
     # Get path to Wheels folder:
-    wheels_dir = os.path.join(os.path.dirname(__file__), "..", "wheels")
+    wheels_dir = os.path.join(os.path.dirname(__file__), "..", "..", "wheels")
 
     # Get path to manifest file:
     manifest_path = os.path.join(
         os.path.dirname(__file__), 
         "..", 
+        "..",
         "blender_manifest.toml"
     )
 
