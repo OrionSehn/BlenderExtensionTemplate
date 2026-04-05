@@ -10,7 +10,6 @@ BLENDER_PATH = "C:/Program Files/Blender Foundation/Blender 4.4/blender.exe"
 deps: 
 	sudo apt update
 	sudo apt install zip
-# 	sudo add-apt-repository ppa:deadsnakes/ppa
 	sudo apt install python$(PYTHON_VERSION)
 	sudo apt install python3-pip
 	python$(PYTHON_VERSION) -m pip install --upgrade pip setuptools build
