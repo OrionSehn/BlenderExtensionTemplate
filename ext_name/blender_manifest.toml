@@ -1,0 +1,38 @@
+
+# Manditory metadata fields for a Blender extension. 
+# For more information on these fields, see the documentation:
+# https://docs.blender.org/manual/en/latest/advanced/extensions/getting_started.html#manifest
+
+blender_version_min = "4.2.0"
+id = "ext_name"
+license = ["GPL-3.0-or-later"]
+maintainer = "Your Name <your.email@example.com>"
+name = "Extension Name"
+schema_version = "1.0.0"
+tagline = "A generic Blender extension template"
+type = "add-on"
+version = "0.1.0"
+
+# Optional: additional metadata fields.
+
+# blender_version_max = "5.0.0"
+# website = ""
+# copyright = ""
+# tags = ["Generic", "Template"]
+# platforms = ["windows-x64", "linux-x64", "macos-x64", "macos-arm64"]
+
+
+# This section is updated by the build system, and should be left empty in the source manifest.
+# To see the script which fills it, check out `build/update_wheels_manifest.py`.
+
+wheels = [
+]
+
+# permissions = []
+
+[build]
+paths_exclude_patterns = [
+    ".git",
+    "*.pyc",
+    "*__pycache__*"
+    ]
