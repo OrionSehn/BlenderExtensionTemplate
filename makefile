@@ -15,7 +15,6 @@ deps:
 	sudo apt install python3-pip
 	python$(PYTHON_VERSION) -m pip install --upgrade pip setuptools build
 
-
 package: deps
 	python$(PYTHON_VERSION) -m build --wheel --outdir build
 
@@ -34,8 +33,13 @@ zip:
 	find $(EXT_NAME) -type f | zip ./build/$(EXT_NAME) -@
 	@echo "Zip Created"
 
+clean:
+	rm -rf $(EXT_NAME).egg-info/ 
+	python$(PYTHON_VERSION) $(EXT_NAME)/$(EXT_NAME)/scripts/clear_wheels_manifest.py
+	@echo "Cleaned build artifacts and cleared manifest"
+
 # Builds the extension, zips for distribution
-build: wheels package zip
+build: wheels package zip clean
 
 # Tests the extension by running pytest in Blender's Python environment
 test:
