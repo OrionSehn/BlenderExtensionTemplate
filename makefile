@@ -1,5 +1,5 @@
 
-.PHONY: deps package wheels zip build test 
+.PHONY: deps package wheels zip build clean test
 
 PYTHON_VERSION = 3.11
 PLATFORM = win_amd64
