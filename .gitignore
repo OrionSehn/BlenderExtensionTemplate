@@ -2,6 +2,8 @@
 env/
 build/
 
+ext_name/blender_manifest.toml
+
 __pycache__/
 *.pyc
 *.pyo

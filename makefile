@@ -24,6 +24,8 @@ wheels: deps
 	rm -rf ./$(EXT_NAME)/wheels/
 	mkdir -p ./$(EXT_NAME)/wheels/
 	python$(PYTHON_VERSION) -m pip download -r requirements.txt --dest ./$(EXT_NAME)/wheels --only-binary=:all: --python-version=$(PYTHON_VERSION) --platform=$(PLATFORM)
+# 	copy wheel files to extension folder and update manifest
+	cp build/*.whl ./$(EXT_NAME)/wheels/
 	python$(PYTHON_VERSION) $(EXT_NAME)/$(EXT_NAME)/scripts/update_wheels_manifest.py
 	@echo "Wheels Built"
 
