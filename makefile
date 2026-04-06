@@ -14,16 +14,17 @@ deps:
 	sudo apt install python3-pip
 	python$(PYTHON_VERSION) -m pip install --upgrade pip setuptools build
 
-package: deps
+package:
 	python$(PYTHON_VERSION) -m build --wheel --outdir build
+# 	copy wheel files to extension folder
+	cp build/*.whl ./$(EXT_NAME)/wheels/
+	python$(PYTHON_VERSION) $(EXT_NAME)/$(EXT_NAME)/scripts/update_wheels_manifest.py
 
 # Grabs wheels for extension dependencies
-wheels: deps
+wheels:
 	rm -rf ./$(EXT_NAME)/wheels/
 	mkdir -p ./$(EXT_NAME)/wheels/
 	python$(PYTHON_VERSION) -m pip download -r requirements.txt --dest ./$(EXT_NAME)/wheels --only-binary=:all: --python-version=$(PYTHON_VERSION) --platform=$(PLATFORM)
-# 	copy wheel files to extension folder and update manifest
-	cp build/*.whl ./$(EXT_NAME)/wheels/
 	python$(PYTHON_VERSION) $(EXT_NAME)/$(EXT_NAME)/scripts/update_wheels_manifest.py
 	@echo "Wheels Built"
 
@@ -38,7 +39,7 @@ clean:
 	@echo "Cleaned build artifacts and cleared manifest"
 
 # Builds the extension, zips for distribution
-build: wheels package zip clean
+build: deps wheels package zip clean
 
 # Tests the extension by running pytest in Blender's Python environment
 test:
