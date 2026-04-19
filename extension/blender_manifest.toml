@@ -26,6 +26,7 @@ version = "0.1.0"
 # To see the script which fills it, check out `build/update_wheels_manifest.py`.
 
 wheels = [
+"./wheels/ext_name-0.0.1-py3-none-any.whl", 
 ]
 
 # permissions = []
@@ -34,5 +35,8 @@ wheels = [
 paths_exclude_patterns = [
     ".git",
     "*.pyc",
-    "*__pycache__*"
+    "*__pycache__*",
+    "/ext_name",
+    "ext_name.egg-info",
+    "pyproject.toml",
     ]

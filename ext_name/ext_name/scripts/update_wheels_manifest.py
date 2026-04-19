@@ -54,13 +54,20 @@ def update_wheels_manifest(wheels_dir, manifest_path):
 
 if __name__ == "__main__":
     # Get path to Wheels folder:
-    wheels_dir = os.path.join(os.path.dirname(__file__), "..", "..", "wheels")
+    wheels_dir = os.path.join(
+        os.path.dirname(__file__),
+        "..",
+        "..",
+        "extension",
+        "wheels"
+        )
 
     # Get path to manifest file:
     manifest_path = os.path.join(
-        os.path.dirname(__file__), 
-        "..", 
+        os.path.dirname(__file__),
         "..",
+        "..",
+        "extension",
         "blender_manifest.toml"
     )
 
