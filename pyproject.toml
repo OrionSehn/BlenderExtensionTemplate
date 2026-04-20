@@ -24,4 +24,4 @@ Issues = "https://github.com/OrionSehn/ext_name/issues"
 
 [tool.setuptools.packages.find]
 include = ["ext_name*"]
-exclude = ["test*"]
+exclude = ["*/test/*"]

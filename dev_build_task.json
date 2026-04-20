@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+      {
+          "label": "build_extension_package",
+          "type": "shell",
+          "command": "wsl",
+          "args": [
+            "-e", "make", "-C", "../", "package"
+            
+        ],
+          "problemMatcher": []
+      }
+  ]
+}
