@@ -1,1 +1,4 @@
-networkx
+pytest
+
+# place other dependencies here, for example:
+# numpy
